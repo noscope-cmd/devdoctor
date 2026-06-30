@@ -1,0 +1,43 @@
+{
+  "name": "devdoctor",
+  "version": "1.0.0",
+  "description": "A professional cross-platform CLI that diagnoses your development environment and suggests fixes.",
+  "type": "module",
+  "bin": {
+    "devdoctor": "./bin/devdoctor.mjs"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node --loader ts-node/esm src/cli.ts",
+    "start": "node bin/devdoctor.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "doctor",
+    "diagnostics",
+    "developer-tools",
+    "environment",
+    "health-check",
+    "ports",
+    "devops"
+  ],
+  "author": "DevDoctor Contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2"
+  }
+}

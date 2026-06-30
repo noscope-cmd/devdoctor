@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DevDoctor Report</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+         background:#0b1020; color:#e5e7eb; line-height:1.5; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header { text-align:center; padding: 2rem 0; }
+  h1 { font-size: 2.2rem; margin:0; background: linear-gradient(90deg,#38bdf8,#818cf8);
+       -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .meta { color:#94a3b8; font-size:.85rem; margin-top:.5rem; }
+  .score-card { background:#111729; border:1px solid #1f2937; border-radius:16px;
+                padding:1.5rem; margin:1.5rem 0; }
+  .bar { height:18px; background:#1f2937; border-radius:99px; overflow:hidden; margin:.75rem 0; }
+  .bar > span { display:block; height:100%; border-radius:99px; }
+  .score-num { font-size:2.6rem; font-weight:800; }
+  .pills { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+  .pill { background:#0b1020; border:1px solid #1f2937; border-radius:99px; padding:.3rem .9rem; font-size:.85rem; }
+  section { background:#111729; border:1px solid #1f2937; border-radius:14px; padding:1rem 1.25rem; margin:1rem 0; }
+  h2 { font-size:1.1rem; margin:.25rem 0 .75rem; color:#7dd3fc; }
+  table { width:100%; border-collapse:collapse; }
+  td { padding:.45rem .5rem; border-bottom:1px solid #1a2233; vertical-align:top; font-size:.92rem; }
+  td.sev { width:2rem; text-align:center; font-size:1.05rem; }
+  td.title { font-weight:600; width:14rem; }
+  td.ver { color:#94a3b8; text-align:right; white-space:nowrap; }
+  tr.detail td { color:#94a3b8; font-size:.85rem; padding-top:0; border-bottom:1px solid #1a2233; }
+  .fix { margin:.4rem 0; }
+  .fix pre { background:#0b1020; border:1px solid #1f2937; border-radius:8px; padding:.5rem .7rem;
+             overflow:auto; margin:.3rem 0; color:#7dd3fc; font-size:.82rem; }
+  .fix a { color:#818cf8; font-size:.8rem; }
+  footer { text-align:center; color:#475569; font-size:.8rem; margin-top:2rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🩺 DevDoctor Report</h1>
+      <div class="meta">Linux · x64 · 2026-06-30T10:06:47.507Z</div>
+    </header>
+    <div class="score-card">
+      <div style="display:flex;align-items:baseline;justify-content:space-between">
+        <div><div class="score-num" style="color:#ef4444">55%</div>
+        <div style="color:#ef4444;font-weight:700">Fair</div></div>
+        <div style="text-align:right;color:#94a3b8">Development Environment</div>
+      </div>
+      <div class="bar"><span style="width:55%;background:#ef4444"></span></div>
+      <div class="pills">
+        <div class="pill">✅ 5 passed</div>
+        <div class="pill">⚠️ 1 warning</div>
+        <div class="pill">❌ 4 critical</div>
+        <div class="pill">➖ 18 skipped</div>
+      </div>
+    </div>
+    <section><h2>Version Control</h2><table><tr>
+            <td class="sev" style="color:#eab308">⚠️</td>
+            <td class="title">Git</td>
+            <td>Installed (identity not configured)</td>
+            <td class="ver">2.47.3</td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>Git is installed but user.name/user.email are not fully set.</p><div class="fix">🔧 Set your global Git author name<pre>$ git config --global user.name &quot;Your Name&quot;</pre></div><div class="fix">🔧 Set your global Git email<pre>$ git config --global user.email &quot;you@example.com&quot;</pre></div></td></tr></table></section><section><h2>Languages &amp; Runtimes</h2><table><tr>
+            <td class="sev" style="color:#ef4444">❌</td>
+            <td class="title">Go</td>
+            <td>Not installed</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`go` was not found on your PATH.</p><div class="fix">🔧 Install Go<pre>$ brew install go</pre><a href="https://go.dev/dl/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#22c55e">✅</td>
+            <td class="title">Java (JDK)</td>
+            <td>v18.9</td>
+            <td class="ver">18.9</td>
+          </tr><tr>
+            <td class="sev" style="color:#22c55e">✅</td>
+            <td class="title">Node.js</td>
+            <td>v20.20.2</td>
+            <td class="ver">20.20.2</td>
+          </tr><tr>
+            <td class="sev" style="color:#22c55e">✅</td>
+            <td class="title">Python</td>
+            <td>v3.13.13</td>
+            <td class="ver">3.13.13</td>
+          </tr><tr>
+            <td class="sev" style="color:#ef4444">❌</td>
+            <td class="title">Rust (rustc)</td>
+            <td>Not installed</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`rustc` was not found on your PATH.</p><div class="fix">🔧 Install Rust via rustup<pre>$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</pre><a href="https://rustup.rs/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr></table></section><section><h2>Package Managers</h2><table><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Bun</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`bun` was not found on your PATH.</p><div class="fix">🔧 Install Bun<pre>$ curl -fsSL https://bun.sh/install | bash</pre><a href="https://bun.sh/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#ef4444">❌</td>
+            <td class="title">Cargo</td>
+            <td>Not installed</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`cargo` was not found on your PATH.</p><div class="fix">🔧 Cargo ships with rustup<pre>$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</pre><a href="https://rustup.rs/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Gradle</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`gradle` was not found on your PATH.</p><div class="fix">🔧 Install Gradle<pre>$ brew install gradle</pre><a href="https://gradle.org/install/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Maven</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`mvn` was not found on your PATH.</p><div class="fix">🔧 Install Maven<pre>$ brew install maven</pre><a href="https://maven.apache.org/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#22c55e">✅</td>
+            <td class="title">npm</td>
+            <td>v10.8.2</td>
+            <td class="ver">10.8.2</td>
+          </tr><tr>
+            <td class="sev" style="color:#22c55e">✅</td>
+            <td class="title">pip</td>
+            <td>v26.0.1</td>
+            <td class="ver">26.0.1</td>
+          </tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">pnpm</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`pnpm` was not found on your PATH.</p><div class="fix">🔧 Install pnpm<pre>$ corepack enable pnpm  # or: npm i -g pnpm</pre><a href="https://pnpm.io/installation" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Poetry</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`poetry` was not found on your PATH.</p><div class="fix">🔧 Install Poetry<pre>$ curl -sSL https://install.python-poetry.org | python3 -</pre><a href="https://python-poetry.org/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">uv</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`uv` was not found on your PATH.</p><div class="fix">🔧 Install uv<pre>$ curl -LsSf https://astral.sh/uv/install.sh | sh</pre><a href="https://docs.astral.sh/uv/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Yarn</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`yarn` was not found on your PATH.</p><div class="fix">🔧 Install Yarn<pre>$ corepack enable  # or: npm i -g yarn</pre><a href="https://yarnpkg.com/getting-started/install" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr></table></section><section><h2>Containers</h2><table><tr>
+            <td class="sev" style="color:#ef4444">❌</td>
+            <td class="title">Docker</td>
+            <td>Not installed</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`docker` was not found on your PATH.</p><div class="fix">🔧 Install Docker<pre>$ brew install --cask docker</pre><a href="https://docs.docker.com/get-docker/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Docker Compose</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`docker` was not found on your PATH.</p><div class="fix">🔧 Docker Compose ships with modern Docker Desktop / engine<a href="https://docs.docker.com/compose/install/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr></table></section><section><h2>Cloud &amp; Infrastructure</h2><table><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">AWS CLI</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`aws` was not found on your PATH.</p><div class="fix">🔧 Install the AWS CLI<pre>$ brew install awscli</pre><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Azure CLI</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`az` was not found on your PATH.</p><div class="fix">🔧 Install the Azure CLI<pre>$ brew install azure-cli</pre><a href="https://learn.microsoft.com/cli/azure/install-azure-cli" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Google Cloud CLI</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`gcloud` was not found on your PATH.</p><div class="fix">🔧 Install the Google Cloud CLI<pre>$ brew install --cask google-cloud-sdk</pre><a href="https://cloud.google.com/sdk/docs/install" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Kubernetes (kubectl)</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`kubectl` was not found on your PATH.</p><div class="fix">🔧 Install kubectl<pre>$ brew install kubectl</pre><a href="https://kubernetes.io/docs/tasks/tools/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Terraform</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`terraform` was not found on your PATH.</p><div class="fix">🔧 Install Terraform<pre>$ brew install terraform</pre><a href="https://developer.hashicorp.com/terraform/install" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr></table></section><section><h2>Databases</h2><table><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">MongoDB (mongosh)</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`mongosh` was not found on your PATH.</p><div class="fix">🔧 Install the MongoDB Shell<pre>$ brew install mongosh</pre><a href="https://www.mongodb.com/try/download/shell" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">MySQL</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`mysql` was not found on your PATH.</p><div class="fix">🔧 Install MySQL client<pre>$ brew install mysql-client</pre><a href="https://dev.mysql.com/downloads/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">PostgreSQL (psql)</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`psql` was not found on your PATH.</p><div class="fix">🔧 Install PostgreSQL client<pre>$ brew install libpq  # or postgresql</pre><a href="https://www.postgresql.org/download/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">Redis (redis-cli)</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`redis-cli` was not found on your PATH.</p><div class="fix">🔧 Install Redis<pre>$ brew install redis</pre><a href="https://redis.io/download/" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr><tr>
+            <td class="sev" style="color:#6b7280">➖</td>
+            <td class="title">SQLite</td>
+            <td>Not installed (optional)</td>
+            <td class="ver"></td>
+          </tr><tr class="detail"><td></td><td colspan="3"><p>`sqlite3` was not found on your PATH.</p><div class="fix">🔧 Install SQLite<pre>$ brew install sqlite</pre><a href="https://www.sqlite.org/download.html" target="_blank" rel="noreferrer">docs ↗</a></div></td></tr></table></section>
+    <footer>Generated by DevDoctor v1.0.0</footer>
+  </div>
+</body>
+</html>
