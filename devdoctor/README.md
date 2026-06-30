@@ -56,7 +56,7 @@ Niente più "ma perché non funziona?". Lo lanci, leggi, copi-incolli il fix. �
 
 ```bash
 # 1. Clona il repository
-git clone https://github.com/SamaX-gg/devdoctor.git
+git clone https://github.com/noscope-cmd/devdoctor.git
 cd devdoctor
 
 # 2. Installa e compila
